@@ -1,5 +1,5 @@
 // 4.1.7 Reflect.getOwnMetadata ( metadataKey, target [, propertyKey] )
-// https://rbuckton.github.io/reflect-metadata/#reflect.getownmetadata
+// https://microsoft.github.io/reflect-metadata/#reflect.getownmetadata
 
 /// <reference path="../index.d.ts" />
 import { assert } from "chai";

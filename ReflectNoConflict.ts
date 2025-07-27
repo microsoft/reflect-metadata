@@ -14,7 +14,7 @@ and limitations under the License.
 ***************************************************************************** */
 
 // Metadata Proposal
-// https://rbuckton.github.io/reflect-metadata/
+// https://microsoft.github.io/reflect-metadata/
 
 type MemberDecorator = (target: Object, propertyKey: string | symbol, descriptor?: PropertyDescriptor) => PropertyDescriptor | void;
 
@@ -178,7 +178,7 @@ export function decorate(decorators: (ClassDecorator | MemberDecorator)[], targe
 }
 
 // 4.1.2 Reflect.metadata(metadataKey, metadataValue)
-// https://rbuckton.github.io/reflect-metadata/#reflect.metadata
+// https://microsoft.github.io/reflect-metadata/#reflect.metadata
 
 /**
  * A default metadata decorator factory that can be used on a class, class member, or parameter.
@@ -235,7 +235,7 @@ export function metadata(metadataKey: any, metadataValue: any): { (target: Funct
 }
 
 // 4.1.3 Reflect.defineMetadata(metadataKey, metadataValue, target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect.definemetadata
+// https://microsoft.github.io/reflect-metadata/#reflect.definemetadata
 
 /**
  * Define a unique metadata entry on the target.
@@ -341,7 +341,7 @@ export function defineMetadata(metadataKey: any, metadataValue: any, target: any
 }
 
 // 4.1.4 Reflect.hasMetadata(metadataKey, target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect.hasmetadata
+// https://microsoft.github.io/reflect-metadata/#reflect.hasmetadata
 
 /**
  * Gets a value indicating whether the target object or its prototype chain has the provided metadata key defined.
@@ -432,7 +432,7 @@ export function hasMetadata(metadataKey: any, target: any, propertyKey?: string 
 }
 
 // 4.1.5 Reflect.hasOwnMetadata(metadataKey, target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect-hasownmetadata
+// https://microsoft.github.io/reflect-metadata/#reflect-hasownmetadata
 
 /**
  * Gets a value indicating whether the target object has the provided metadata key defined.
@@ -523,7 +523,7 @@ export function hasOwnMetadata(metadataKey: any, target: any, propertyKey?: stri
 }
 
 // 4.1.6 Reflect.getMetadata(metadataKey, target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect-getmetadata
+// https://microsoft.github.io/reflect-metadata/#reflect-getmetadata
 
 /**
  * Gets the metadata value for the provided metadata key on the target object or its prototype chain.
@@ -614,7 +614,7 @@ export function getMetadata(metadataKey: any, target: any, propertyKey?: string 
 }
 
 // 4.1.7 Reflect.getOwnMetadata(metadataKey, target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect-getownmetadata
+// https://microsoft.github.io/reflect-metadata/#reflect-getownmetadata
 
 /**
  * Gets the metadata value for the provided metadata key on the target object.
@@ -705,7 +705,7 @@ export function getOwnMetadata(metadataKey: any, target: any, propertyKey?: stri
 }
 
 // 4.1.8 Reflect.getMetadataKeys(target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect-getmetadatakeys
+// https://microsoft.github.io/reflect-metadata/#reflect-getmetadatakeys
 
 /**
  * Gets the metadata keys defined on the target object or its prototype chain.
@@ -793,7 +793,7 @@ export function getMetadataKeys(target: any, propertyKey?: string | symbol): any
 }
 
 // 4.1.9 Reflect.getOwnMetadataKeys(target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect-getownmetadata
+// https://microsoft.github.io/reflect-metadata/#reflect-getownmetadata
 
 /**
  * Gets the unique metadata keys defined on the target object.
@@ -881,7 +881,7 @@ export function getOwnMetadataKeys(target: any, propertyKey?: string | symbol): 
 }
 
 // 4.1.10 Reflect.deleteMetadata(metadataKey, target [, propertyKey])
-// https://rbuckton.github.io/reflect-metadata/#reflect-deletemetadata
+// https://microsoft.github.io/reflect-metadata/#reflect-deletemetadata
 
 /**
  * Deletes the metadata entry from the target object with the provided key.
@@ -998,7 +998,7 @@ function DecorateProperty(decorators: MemberDecorator[], target: any, propertyKe
 }
 
 // 3.1.1.1 OrdinaryHasMetadata(MetadataKey, O, P)
-// https://rbuckton.github.io/reflect-metadata/#ordinaryhasmetadata
+// https://microsoft.github.io/reflect-metadata/#ordinaryhasmetadata
 function OrdinaryHasMetadata(MetadataKey: any, O: any, P: string | symbol | undefined): boolean {
     const hasOwn = OrdinaryHasOwnMetadata(MetadataKey, O, P);
     if (hasOwn) return true;
@@ -1008,7 +1008,7 @@ function OrdinaryHasMetadata(MetadataKey: any, O: any, P: string | symbol | unde
 }
 
 // 3.1.2.1 OrdinaryHasOwnMetadata(MetadataKey, O, P)
-// https://rbuckton.github.io/reflect-metadata/#ordinaryhasownmetadata
+// https://microsoft.github.io/reflect-metadata/#ordinaryhasownmetadata
 function OrdinaryHasOwnMetadata(MetadataKey: any, O: any, P: string | symbol | undefined): boolean {
     const provider = GetMetadataProvider(O, P, /*Create*/ false);
     if (IsUndefined(provider)) return false;
@@ -1016,7 +1016,7 @@ function OrdinaryHasOwnMetadata(MetadataKey: any, O: any, P: string | symbol | u
 }
 
 // 3.1.3.1 OrdinaryGetMetadata(MetadataKey, O, P)
-// https://rbuckton.github.io/reflect-metadata/#ordinarygetmetadata
+// https://microsoft.github.io/reflect-metadata/#ordinarygetmetadata
 function OrdinaryGetMetadata(MetadataKey: any, O: any, P: string | symbol | undefined): any {
     const hasOwn = OrdinaryHasOwnMetadata(MetadataKey, O, P);
     if (hasOwn) return OrdinaryGetOwnMetadata(MetadataKey, O, P);
@@ -1026,7 +1026,7 @@ function OrdinaryGetMetadata(MetadataKey: any, O: any, P: string | symbol | unde
 }
 
 // 3.1.4.1 OrdinaryGetOwnMetadata(MetadataKey, O, P)
-// https://rbuckton.github.io/reflect-metadata/#ordinarygetownmetadata
+// https://microsoft.github.io/reflect-metadata/#ordinarygetownmetadata
 function OrdinaryGetOwnMetadata(MetadataKey: any, O: any, P: string | symbol | undefined): any {
     const provider = GetMetadataProvider(O, P, /*Create*/ false);
     if (IsUndefined(provider)) return;
@@ -1034,14 +1034,14 @@ function OrdinaryGetOwnMetadata(MetadataKey: any, O: any, P: string | symbol | u
 }
 
 // 3.1.5.1 OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P)
-// https://rbuckton.github.io/reflect-metadata/#ordinarydefineownmetadata
+// https://microsoft.github.io/reflect-metadata/#ordinarydefineownmetadata
 function OrdinaryDefineOwnMetadata(MetadataKey: any, MetadataValue: any, O: any, P: string | symbol | undefined): void {
     const provider = GetMetadataProvider(O, P, /*Create*/ true);
     provider.OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P);
 }
 
 // 3.1.6.1 OrdinaryMetadataKeys(O, P)
-// https://rbuckton.github.io/reflect-metadata/#ordinarymetadatakeys
+// https://microsoft.github.io/reflect-metadata/#ordinarymetadatakeys
 function OrdinaryMetadataKeys(O: any, P: string | symbol | undefined): any[] {
     const ownKeys = OrdinaryOwnMetadataKeys(O, P);
     const parent = OrdinaryGetPrototypeOf(O);
@@ -1069,7 +1069,7 @@ function OrdinaryMetadataKeys(O: any, P: string | symbol | undefined): any[] {
 }
 
 // 3.1.7.1 OrdinaryOwnMetadataKeys(O, P)
-// https://rbuckton.github.io/reflect-metadata/#ordinaryownmetadatakeys
+// https://microsoft.github.io/reflect-metadata/#ordinaryownmetadatakeys
 function OrdinaryOwnMetadataKeys(O: any, P: string | symbol | undefined): any[] {
     const provider = GetMetadataProvider(O, P, /*create*/ false);
     if (!provider) {
@@ -1464,7 +1464,7 @@ function GetOrCreateMetadataRegistry(): MetadataRegistry {
 
 function CreateMetadataProvider(registry: MetadataRegistry): MetadataProvider {
     // [[Metadata]] internal slot
-    // https://rbuckton.github.io/reflect-metadata/#ordinary-object-internal-methods-and-internal-slots
+    // https://microsoft.github.io/reflect-metadata/#ordinary-object-internal-methods-and-internal-slots
     const metadata = new _WeakMap<any, Map<string | symbol | undefined, Map<any, any>>>();
     const provider: MetadataProvider = {
         isProviderFor(O, P) {
@@ -1482,7 +1482,7 @@ function CreateMetadataProvider(registry: MetadataRegistry): MetadataProvider {
     return provider;
 
     // 2.1.1 GetOrCreateMetadataMap(O, P, Create)
-    // https://rbuckton.github.io/reflect-metadata/#getorcreatemetadatamap
+    // https://microsoft.github.io/reflect-metadata/#getorcreatemetadatamap
     function GetOrCreateMetadataMap(O: object, P: string | symbol | undefined, Create: true): Map<any, any>;
     function GetOrCreateMetadataMap(O: object, P: string | symbol | undefined, Create: false): Map<any, any> | undefined;
     function GetOrCreateMetadataMap(O: object, P: string | symbol | undefined, Create: boolean) {
@@ -1511,7 +1511,7 @@ function CreateMetadataProvider(registry: MetadataRegistry): MetadataProvider {
     }
 
     // 3.1.2.1 OrdinaryHasOwnMetadata(MetadataKey, O, P)
-    // https://rbuckton.github.io/reflect-metadata/#ordinaryhasownmetadata
+    // https://microsoft.github.io/reflect-metadata/#ordinaryhasownmetadata
     function OrdinaryHasOwnMetadata(MetadataKey: any, O: object, P: string | symbol | undefined): boolean {
         const metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
         if (IsUndefined(metadataMap)) return false;
@@ -1519,7 +1519,7 @@ function CreateMetadataProvider(registry: MetadataRegistry): MetadataProvider {
     }
 
     // 3.1.4.1 OrdinaryGetOwnMetadata(MetadataKey, O, P)
-    // https://rbuckton.github.io/reflect-metadata/#ordinarygetownmetadata
+    // https://microsoft.github.io/reflect-metadata/#ordinarygetownmetadata
     function OrdinaryGetOwnMetadata(MetadataKey: any, O: object, P: string | symbol | undefined): any {
         const metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
         if (IsUndefined(metadataMap)) return undefined;
@@ -1527,14 +1527,14 @@ function CreateMetadataProvider(registry: MetadataRegistry): MetadataProvider {
     }
 
     // 3.1.5.1 OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P)
-    // https://rbuckton.github.io/reflect-metadata/#ordinarydefineownmetadata
+    // https://microsoft.github.io/reflect-metadata/#ordinarydefineownmetadata
     function OrdinaryDefineOwnMetadata(MetadataKey: any, MetadataValue: any, O: object, P: string | symbol | undefined): void {
         const metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ true);
         metadataMap.set(MetadataKey, MetadataValue);
     }
 
     // 3.1.7.1 OrdinaryOwnMetadataKeys(O, P)
-    // https://rbuckton.github.io/reflect-metadata/#ordinaryownmetadatakeys
+    // https://microsoft.github.io/reflect-metadata/#ordinaryownmetadatakeys
     function OrdinaryOwnMetadataKeys(O: any, P: string | symbol | undefined): any[] {
         const keys: any[] = [];
         const metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
