@@ -1298,7 +1298,7 @@ function OrdinaryGetPrototypeOf(O: any): any {
     // or ensure each class has a valid `constructor` property on its prototype that
     // points back to the constructor.
 
-    // If this is not the same as Function.[[Prototype]], then this is definately inherited.
+  // If this is not the same as Function.[[Prototype]], then this is definitely inherited.
     // This is the case when in ES6 or when using __proto__ in a compatible browser.
     if (proto !== functionPrototype) return proto;
 
