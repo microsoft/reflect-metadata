@@ -1,3 +1,3 @@
 # Metadata Reflection API
 
-The spec has moved to https://rbuckton.github.io/reflect-metadata/
+The spec has moved to https://microsoft.github.io/reflect-metadata/

@@ -1,5 +1,5 @@
 // 4.1.2 Reflect.defineMetadata ( metadataKey, metadataValue, target, propertyKey )
-// https://rbuckton.github.io/reflect-metadata/#reflect.definemetadata
+// https://microsoft.github.io/reflect-metadata/#reflect.definemetadata
 
 /// <reference path="../index.d.ts" />
 import { assert } from "chai";

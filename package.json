@@ -44,9 +44,9 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/rbuckton/reflect-metadata/issues"
+    "url": "https://github.com/microsoft/reflect-metadata/issues"
   },
-  "homepage": "http://rbuckton.github.io/reflect-metadata",
+  "homepage": "https://microsoft.github.io/reflect-metadata/",
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^3.4.34",

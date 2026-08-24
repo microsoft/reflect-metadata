@@ -1,5 +1,5 @@
 // 4.1.10 Reflect.deleteMetadata ( metadataKey, target [, propertyKey] )
-// https://rbuckton.github.io/reflect-metadata/#reflect.deletemetadata
+// https://microsoft.github.io/reflect-metadata/#reflect.deletemetadata
 
 /// <reference path="../index.d.ts" />
 import { assert } from "chai";
