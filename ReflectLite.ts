@@ -1457,7 +1457,11 @@ namespace Reflect {
             if (!IsUndefined(registrySymbol) &&
                 typeof root.Reflect !== "undefined" &&
                 !(registrySymbol in root.Reflect) &&
-                typeof root.Reflect.defineMetadata === "function") {
+                typeof root.Reflect.defineMetadata === "function" &&
+                typeof root.Reflect.hasOwnMetadata === "function" &&
+                typeof root.Reflect.getOwnMetadata === "function" &&
+                typeof root.Reflect.getOwnMetadataKeys === "function" &&
+                typeof root.Reflect.deleteMetadata === "function") {
                 // interoperate with older version of `reflect-metadata` that did not support a registry.
                 fallback = CreateFallbackProvider(root.Reflect);
             }

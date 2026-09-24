@@ -115,5 +115,21 @@ for (const { name, header, context } of suites) {
             assert.isDefined(provider2);
             assert.strictEqual(provider1, provider2);
         });
+        it("ignores incomplete implementation", () => {
+            const { missing, value } = script({ ...context })`
+                Reflect.defineMetadata = function() {};
+
+                {
+                    ${header}
+
+                    const obj = {};
+                    exports.missing = Reflect.getOwnMetadata("a", obj);
+                    Reflect.defineMetadata("a", 1, obj);
+                    exports.value = Reflect.getOwnMetadata("a", obj);
+                }
+            `;
+            assert.isUndefined(missing);
+            assert.strictEqual(value, 1);
+        });
     });
 }
