@@ -1334,7 +1334,11 @@ function CreateMetadataRegistry(): MetadataRegistry {
     if (!IsUndefined(registrySymbol) &&
         typeof Reflect !== "undefined" &&
         !(registrySymbol in Reflect) &&
-        typeof Reflect.defineMetadata === "function") {
+        typeof Reflect.defineMetadata === "function" &&
+        typeof Reflect.hasOwnMetadata === "function" &&
+        typeof Reflect.getOwnMetadata === "function" &&
+        typeof Reflect.getOwnMetadataKeys === "function" &&
+        typeof Reflect.deleteMetadata === "function") {
         // interoperate with older version of `reflect-metadata` that did not support a registry.
         fallback = CreateFallbackProvider(Reflect);
     }
