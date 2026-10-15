@@ -1534,7 +1534,7 @@ namespace Reflect {
                 if (!IsUndefined(first)) {
                     if (first.isProviderFor(O, P)) return first;
                     if (!IsUndefined(second)) {
-                        if (second.isProviderFor(O, P)) return first;
+                        if (second.isProviderFor(O, P)) return second;
                         if (!IsUndefined(rest)) {
                             const iterator = GetIterator(rest);
                             while (true) {

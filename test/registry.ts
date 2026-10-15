@@ -58,6 +58,34 @@ for (const { name, header, context } of suites.filter(s => s.global && !s.polyfi
     });
 }
 
+for (const { name, header, context } of suites.filter(s => s.global)) {
+    describe(`MetadataRegistry + ${name}`, () => {
+        it("getProvider returns second registered provider", () => {
+            const { provider, expected } = script({ ...context })`
+                ${header}
+
+                const registrySymbol = Symbol.for("@reflect-metadata:registry");
+                const registry = Reflect[registrySymbol];
+
+                const obj = {};
+                const expected = {
+                    isProviderFor(O, P) { return O === obj; },
+                    OrdinaryDefineOwnMetadata() { },
+                    OrdinaryDeleteMetadata() { return false; },
+                    OrdinaryHasOwnMetadata() { return false; },
+                    OrdinaryGetOwnMetadata() { return undefined; },
+                    OrdinaryOwnMetadataKeys() { return []; },
+                };
+                registry.registerProvider(expected);
+
+                exports.provider = registry.getProvider(obj, undefined);
+                exports.expected = expected;
+            `;
+            assert.strictEqual(provider, expected);
+        });
+    });
+}
+
 for (const { name, header, context } of suites) {
     describe(`fallback + ${name}`, () => {
         it("MetadataRegistry", () => {
