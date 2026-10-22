@@ -1127,8 +1127,6 @@ namespace Reflect {
         function deleteMetadata(metadataKey: any, target: any, propertyKey?: string | symbol): boolean {
             if (!IsObject(target)) throw new TypeError();
             if (!IsUndefined(propertyKey)) propertyKey = ToPropertyKey(propertyKey);
-            if (!IsObject(target)) throw new TypeError();
-            if (!IsUndefined(propertyKey)) propertyKey = ToPropertyKey(propertyKey);
             const provider = GetMetadataProvider(target, propertyKey, /*Create*/ false);
             if (IsUndefined(provider)) return false;
             return provider.OrdinaryDeleteMetadata(metadataKey, target, propertyKey);
